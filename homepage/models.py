@@ -10,5 +10,6 @@ class Roast_Boast(models.Model):
     post_date = models.DateTimeField(default=timezone.now)
     total = models.IntegerField(default=0)
 
-    def __str__(self):
-        return self.content
+    @property
+    def votes(self):
+        return self.upvotes + self.downvotes
